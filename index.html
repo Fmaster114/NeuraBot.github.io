@@ -192,4 +192,132 @@
                     <tbody class="text-gray-700 text-base">
                         <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                             <td class="py-4 px-6 font-medium whitespace-nowrap">Dimensions</td>
-                            <td class="py-4 px-6">Compact (approx. 10
+                            <td class="py-4 px-6">Compact (approx. 10 cm / 4 inches tall)</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 font-medium whitespace-nowrap">Battery Life</td>
+                            <td class="py-4 px-6">Up to 100 hours continuous operation</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 font-medium whitespace-nowrap">Connectivity</td>
+                            <td class="py-4 px-6">Wi-Fi 6E, Bluetooth 5.3, UWB</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 font-medium whitespace-nowrap">Materials</td>
+                            <td class="py-4 px-6">Aerospace-grade aluminum, fire-resistant composites</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 transition-colors">
+                            <td class="py-4 px-6 font-medium whitespace-nowrap">Sensors</td>
+                            <td class="py-4 px-6">Lidar, Ultrasonic, Thermal, High-Res Vision, Environmental</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="pre-order" class="section-padding bg-gray-900 text-white text-center">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight reveal-on-scroll">
+                The Future of Home is Here.
+            </h2>
+            <p class="text-xl text-gray-300 mb-10 reveal-on-scroll delay-1">
+                Be among the first to experience unparalleled convenience and security. Pre-order your Neura Bot today.
+            </p>
+            <button class="animated-button bg-indigo-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-indigo-700 text-xl reveal-on-scroll delay-2">
+                Pre-order Neura Bot
+            </button>
+            <p class="text-sm mt-6 opacity-70 reveal-on-scroll delay-3">Limited initial release. Secure yours now.</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 py-12 text-center text-gray-600 text-sm">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
+                <div class="reveal-on-scroll delay-1">
+                    <h4 class="font-semibold text-gray-800 mb-3">Shop Neura</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#pre-order" class="hover:underline">Neura Bot</a></li>
+                        <li><a href="#" class="hover:underline">Accessories</a></li>
+                        <li><a href="#" class="hover:underline">Support Plans</a></li>
+                    </ul>
+                </div>
+                <div class="reveal-on-scroll delay-2">
+                    <h4 class="font-semibold text-gray-800 mb-3">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Neura Care</a></li>
+                        <li><a href="#" class="hover:underline">Installation</a></li>
+                        <li><a href="#" class="hover:underline">Software Updates</a></li>
+                    </ul>
+                </div>
+                <div class="reveal-on-scroll delay-3">
+                    <h4 class="font-semibold text-gray-800 mb-3">About Neura</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">Our Story</a></li>
+                        <li><a href="#contact" class="hover:underline">Contact Us</a></li>
+                        <li><a href="#faq" class="hover:underline">FAQ</a></li>
+                        <li><a href="#privacy-policy" class="hover:underline">Privacy Policy</a></li>
+                        <li><a href="#terms-of-service" class="hover:underline">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 mt-8 reveal-on-scroll delay-4">
+                <p>&copy; 2025 Neura Bot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calculate scroll position, accounting for fixed header height and some extra padding
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const scrollPosition = targetElement.offsetTop - headerHeight - 20; // 20px extra padding
+
+                    window.scrollTo({
+                        top: scrollPosition > 0 ? scrollPosition : 0, // Ensure it doesn't scroll past the top
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll-triggered animations
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+        const observerOptions = {
+            root: null, // viewport as root
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect (backdrop blur change)
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) { // Add 'scrolled' class after 50px scroll
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
