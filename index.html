@@ -123,34 +123,14 @@
         }
 
         /* --- Hero Section Specifics (Initial Load Visibility) --- */
-        /* Ensure hero content is visible by default then animates */
+        /* Ensure hero content is ALWAYS visible */
         .hero-content-reveal h1,
         .hero-content-reveal p,
         .hero-content-reveal a.animated-button {
-            opacity: 0; /* Start hidden for reveal animation */
-            transform: translateY(50px);
-            filter: blur(10px);
-        }
-
-        .hero-content-reveal.animate h1 {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
-            transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1), filter 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .hero-content-reveal.animate p {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-            transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, transform 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, filter 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
-        }
-
-        .hero-content-reveal.animate a.animated-button {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-            transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, transform 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.4s, filter 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.4s;
+            opacity: 1 !important; /* Force visibility */
+            transform: translateY(0) !important; /* Ensure it's not moved */
+            filter: blur(0) !important; /* Remove any blur */
+            transition: none !important; /* Disable transitions */
         }
 
         /* Removed gradient-pulse animation for Neura text */
@@ -337,8 +317,7 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </section>
+        </section>
 
     <section id="pre-order" class="section-padding bg-gray-900 text-white text-center">
         <div class="container mx-auto px-6 max-w-3xl">
