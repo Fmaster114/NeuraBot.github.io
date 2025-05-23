@@ -23,13 +23,53 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* Simple hover effect for features */
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        /* Simple hover effect for buttons and cards */
+        .animated-button {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Ease-in-out quad */
+        }
+        .animated-button:hover {
+            transform: scale(1.03); /* Slightly larger */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
         }
         .feature-card {
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px); /* More pronounced lift */
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+        }
+
+        /* Initial states for reveal animations */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px); /* Starts below its final position */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        /* State when element is visible */
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Specific delays for a staggered effect */
+        .reveal-on-scroll.delay-1 { transition-delay: 0.1s; }
+        .reveal-on-scroll.delay-2 { transition-delay: 0.2s; }
+        .reveal-on-scroll.delay-3 { transition-delay: 0.3s; }
+        .reveal-on-scroll.delay-4 { transition-delay: 0.4s; }
+        .reveal-on-scroll.delay-5 { transition-delay: 0.5s; }
+        .reveal-on-scroll.delay-6 { transition-delay: 0.6s; }
+        .reveal-on-scroll.delay-7 { transition-delay: 0.7s; }
+        .reveal-on-scroll.delay-8 { transition-delay: 0.8s; }
+        .reveal-on-scroll.delay-9 { transition-delay: 0.9s; }
+        /* Add more delays if you have more items to stagger */
+
+        /* Header backdrop effect */
+        header {
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
@@ -44,20 +84,20 @@
                 <a href="#testimonials" class="hover:text-indigo-600 transition-colors">Testimonials</a>
                 <a href="#pre-order" class="hover:text-indigo-600 transition-colors">Pre-order</a>
             </div>
-            <a href="#pre-order" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-5 rounded-full transition duration-300 ease-in-out">Buy</a>
+            <a href="#pre-order" class="animated-button bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-5 rounded-full">Buy</a>
         </nav>
     </header>
 
     <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden bg-gray-900 text-white">
         <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('https://via.placeholder.com/1920x1080/1f2937/d1d5db?text=Neura+Bot+Image');"></div>
         <div class="relative z-10 px-4">
-            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight">
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight reveal-on-scroll">
                 Meet Neura. Your Home, Reimagined.
             </h1>
-            <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+            <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 reveal-on-scroll delay-1">
                 An intelligent companion that anticipates your needs, secures your home, and manages daily life with effortless grace.
             </p>
-            <a href="#pre-order" class="inline-block bg-white text-gray-900 hover:bg-gray-200 font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 text-lg">
+            <a href="#pre-order" class="animated-button inline-block bg-white text-gray-900 hover:bg-gray-200 font-semibold py-3 px-8 rounded-full shadow-lg text-lg reveal-on-scroll delay-2">
                 Discover Neura
             </a>
         </div>
@@ -65,40 +105,40 @@
 
     <section id="features" class="section-padding bg-white">
         <div class="container mx-auto px-6 max-w-6xl">
-            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight">
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll">
                 Unrivaled Intelligence. <span class="text-gradient">Limitless Potential.</span>
             </h2>
-            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20">
+            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll delay-1">
                 Neura isn't just smart; it's a revolutionary leap in home automation, designed to seamlessly integrate into your life.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 reveal-on-scroll delay-2">
                     <div class="text-5xl mb-4">🤖</div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Autonomous Navigation & Manipulation</h3>
                     <p class="text-gray-700 leading-relaxed">Neura moves freely, using advanced robotics to perform physical tasks, from tidying up to assisting with daily routines.</p>
                 </div>
-                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 reveal-on-scroll delay-3">
                     <div class="text-5xl mb-4">🔒</div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Advanced Safety & Emergency Response</h3>
                     <p class="text-gray-700 leading-relaxed">Proactive monitoring for hazards and the ability to automatically contact emergency services, ensuring peace of mind.</p>
                 </div>
-                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 reveal-on-scroll delay-4">
                     <div class="text-5xl mb-4">🧹</div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Whole-Home Cleaning & Chore Assistance</h3>
                     <p class="text-gray-700 leading-relaxed">Experience a perpetually tidy home as Neura handles dusting, vacuuming, dishes, laundry, and more.</p>
                 </div>
-                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 reveal-on-scroll delay-5">
                     <div class="text-5xl mb-4">🗣️</div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Intuitive Voice Control</h3>
                     <p class="text-gray-700 leading-relaxed">Natural language processing allows effortless communication. Just speak, and Neura understands.</p>
                 </div>
-                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 reveal-on-scroll delay-6">
                     <div class="text-5xl mb-4">🔇</div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Uncompromising Privacy</h3>
                     <p class="text-gray-700 leading-relaxed">You're in control. Physical buttons for audio input and output ensure your privacy is paramount.</p>
                 </div>
-                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100 reveal-on-scroll delay-7">
                     <div class="text-5xl mb-4">🔥</div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Fire-Resistant Construction</h3>
                     <p class="text-gray-700 leading-relaxed">Built with advanced, fire-resistant materials for an added layer of safety and durability in your home.</p>
@@ -109,23 +149,23 @@
 
     <section id="testimonials" class="section-padding bg-gray-50">
         <div class="container mx-auto px-6 max-w-6xl">
-            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight">
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll">
                 What Our Customers Say
             </h2>
-            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20">
+            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll delay-1">
                 Hear directly from those who are already living the Neura difference.
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll delay-2">
                     <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"Neura is a game-changer! I no longer worry about daily chores, and the safety features give me incredible peace of mind."</p>
                     <p class="font-semibold text-gray-800">- Jessica A., Early Adopter</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll delay-3">
                     <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"The autonomous cleaning is mind-blowing. Coming home to a spotless house every day is a luxury I never thought possible."</p>
                     <p class="font-semibold text-gray-800">- David S., Homeowner</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll delay-4">
                     <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"My kids love interacting with Neura. It's truly a part of our family, making life easier and more enjoyable for everyone."</p>
                     <p class="font-semibold text-gray-800">- Maria P., Parent</p>
                 </div>
@@ -135,13 +175,13 @@
 
     <section id="tech-specs" class="section-padding bg-white">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight">
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll">
                 Precision Engineered.
             </h2>
-            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-2xl mx-auto mb-20">
+            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-2xl mx-auto mb-20 reveal-on-scroll delay-1">
                 Cutting-edge technology designed for seamless integration and robust performance.
             </p>
-            <div class="overflow-hidden rounded-2xl shadow-lg border border-gray-100">
+            <div class="overflow-hidden rounded-2xl shadow-lg border border-gray-100 reveal-on-scroll delay-2">
                 <table class="min-w-full bg-white">
                     <thead>
                         <tr class="bg-indigo-600 text-white uppercase text-sm font-semibold tracking-wide">
@@ -152,79 +192,4 @@
                     <tbody class="text-gray-700 text-base">
                         <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                             <td class="py-4 px-6 font-medium whitespace-nowrap">Dimensions</td>
-                            <td class="py-4 px-6">Compact (approx. 10 cm / 4 inches tall)</td>
-                        </tr>
-                        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                            <td class="py-4 px-6 font-medium whitespace-nowrap">Battery Life</td>
-                            <td class="py-4 px-6">Up to 100 hours continuous operation</td>
-                        </tr>
-                        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                            <td class="py-4 px-6 font-medium whitespace-nowrap">Connectivity</td>
-                            <td class="py-4 px-6">Wi-Fi 6E, Bluetooth 5.3, UWB</td>
-                        </tr>
-                        <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                            <td class="py-4 px-6 font-medium whitespace-nowrap">Materials</td>
-                            <td class="py-4 px-6">Aerospace-grade aluminum, fire-resistant composites</td>
-                        </tr>
-                        <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="py-4 px-6 font-medium whitespace-nowrap">Sensors</td>
-                            <td class="py-4 px-6">Lidar, Ultrasonic, Thermal, High-Res Vision, Environmental</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section id="pre-order" class="section-padding bg-gray-900 text-white text-center">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight">
-                The Future of Home is Here.
-            </h2>
-            <p class="text-xl text-gray-300 mb-10">
-                Be among the first to experience unparalleled convenience and security. Pre-order your Neura Bot today.
-            </p>
-            <button class="bg-indigo-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-105 text-xl">
-                Pre-order Neura Bot
-            </button>
-            <p class="text-sm mt-6 opacity-70">Limited initial release. Secure yours now.</p>
-        </div>
-    </section>
-
-    <footer class="bg-gray-100 py-12 text-center text-gray-600 text-sm">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
-                <div>
-                    <h4 class="font-semibold text-gray-800 mb-3">Shop Neura</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#pre-order" class="hover:underline">Neura Bot</a></li>
-                        <li><a href="#" class="hover:underline">Accessories</a></li>
-                        <li><a href="#" class="hover:underline">Support Plans</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-gray-800 mb-3">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:underline">Neura Care</a></li>
-                        <li><a href="#" class="hover:underline">Installation</a></li>
-                        <li><a href="#" class="hover:underline">Software Updates</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-gray-800 mb-3">About Neura</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:underline">Our Story</a></li>
-                        <li><a href="#contact" class="hover:underline">Contact Us</a></li>
-                        <li><a href="#faq" class="hover:underline">FAQ</a></li>
-                        <li><a href="#privacy-policy" class="hover:underline">Privacy Policy</a></li>
-                        <li><a href="#terms-of-service" class="hover:underline">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-200 pt-8 mt-8">
-                <p>&copy; 2025 Neura Bot. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                            <td class="py-4 px-6">Compact (approx. 10
