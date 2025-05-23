@@ -115,12 +115,7 @@
         }
         
         /* --- Hero Section Specifics --- */
-        .hero-bg-parallax {
-            background-attachment: fixed; /* Parallax effect */
-            background-position: center bottom; /* Adjust as needed */
-            background-size: cover;
-            transition: background-position 0.2s linear; /* For subtle mouse parallax later if added */
-        }
+        /* Removed hero-bg-parallax as there's no background image now */
 
         /* Initial state for hero content for a dramatic entrance */
         .hero-content-reveal h1 {
@@ -162,52 +157,8 @@
             pointer-events: auto; /* Re-enable clicks for the title itself */
         }
 
-        /* Product Image Section Styling */
-        .product-image-section {
-            background-color: #f0f0f2; /* Slightly darker background */
-            position: relative;
-            z-index: 1; /* Ensure content above doesn't overlap weirdly */
-        }
-        .product-image-section .image-wrapper {
-            position: relative;
-            transform-style: preserve-3d; /* Enable 3D transforms for children */
-        }
-        .product-image-section img {
-            max-width: 80%; /* Don't fill the whole container */
-            height: auto;
-            display: block;
-            margin: 0 auto; /* Center the image */
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25); /* Deep, soft shadow */
-            border-radius: 2rem; /* Rounded corners */
-            transform: translateZ(20px); /* Gives a slight 3D pop */
-        }
-        .product-image-section .callout-text {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) translateZ(40px); /* Pop out even more */
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            opacity: 0; /* Hidden by default for reveal */
-            transition: opacity 1s var(--transition-ease), transform 1s var(--transition-ease);
-        }
-        .product-image-section.is-visible .callout-text {
-            opacity: 1;
-            transform: translateY(-50%) translateZ(40px) translateX(0);
-        }
-        .product-image-section .callout-left {
-            left: 5%;
-            background-color: rgba(0, 0, 0, 0.6);
-            transform: translateY(-50%) translateZ(40px) translateX(-50px);
-        }
-        .product-image-section .callout-right {
-            right: 5%;
-            background-color: rgba(0, 0, 0, 0.6);
-            transform: translateY(-50%) translateZ(40px) translateX(50px);
-        }
-
+        /* Product Image Section Styling - REMOVED */
+        /* .product-image-section { ... } */
     </style>
 </head>
 <body class="antialiased">
@@ -217,7 +168,6 @@
             <a href="#" class="font-bold text-xl text-gray-900">Neura</a>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-700">
                 <a href="#features" class="hover:text-indigo-600 transition-colors">Features</a>
-                <a href="#visuals" class="hover:text-indigo-600 transition-colors">Visuals</a>
                 <a href="#tech-specs" class="hover:text-indigo-600 transition-colors">Tech Specs</a>
                 <a href="#testimonials" class="hover:text-indigo-600 transition-colors">Testimonials</a>
             </div>
@@ -226,10 +176,8 @@
     </header>
 
     <main>
-        <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden bg-gray-900 text-white hero-bg-parallax"
-            style="background-image: url('https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2647&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="relative z-10 px-4 hero-content-reveal">
+        <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden bg-gray-900 text-white">
+            <div class="absolute inset-0 bg-gray-900"></div> <div class="relative z-10 px-4 hero-content-reveal">
                 <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight">
                     Meet <span class="text-gradient-purple-indigo">Neura.</span> Your Home, Reimagined.
                 </h1>
@@ -244,7 +192,7 @@
 
         <section id="features" class="section-padding bg-white relative z-20">
             <div class="container mx-auto px-6 max-w-6xl">
-                <div class="sticky-section-title-wrapper top-[100px]">
+                <div class="sticky-section-title-wrapper">
                     <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
                         Unrivaled Intelligence. <span class="text-gradient-purple-indigo">Limitless Potential.</span>
                     </h2>
@@ -285,29 +233,6 @@
                         <p class="text-gray-700 leading-relaxed">Built with advanced, fire-resistant materials for an added layer of safety and durability in your home.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="visuals" class="section-padding product-image-section text-center">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-16 tracking-tight reveal-on-scroll reveal-fade-in-up">
-                    Experience Neura, Up Close.
-                </h2>
-                <div class="image-wrapper relative py-12">
-                    <img src="https://via.placeholder.com/1200x800/d1d5db/4b5563?text=Stunning+Neura+Product+Image"
-                         alt="Neura Bot in a modern home setting"
-                         class="reveal-on-scroll reveal-fade-in-scale delay-1">
-                    
-                    <span class="callout-text callout-left reveal-on-scroll reveal-slide-in-left delay-5">
-                        Sleek, Minimalist Design
-                    </span>
-                    <span class="callout-text callout-right reveal-on-scroll reveal-slide-in-right delay-6">
-                        Seamless Integration
-                    </span>
-                </div>
-                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mt-16 reveal-on-scroll reveal-fade-in-up delay-7">
-                    Every detail meticulously crafted for elegance and functionality.
-                </p>
             </div>
         </section>
 
@@ -464,7 +389,6 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const headerHeight = document.querySelector('header').offsetHeight;
-                    // Adjust scroll position to account for fixed header and a little extra padding
                     const scrollPosition = targetElement.offsetTop - headerHeight - 20;
 
                     window.scrollTo({
@@ -505,7 +429,6 @@
             }
         });
 
-
         // Header scroll effect (backdrop blur change)
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -515,15 +438,6 @@
                 header.classList.remove('scrolled');
             }
         });
-
-        // Optional: Simple Parallax for Hero Background (if not using background-attachment: fixed)
-        // window.addEventListener('scroll', () => {
-        //     const hero = document.querySelector('.hero-bg-parallax');
-        //     if (hero) {
-        //         const scrollY = window.scrollY;
-        //         hero.style.backgroundPositionY = `calc(center + ${scrollY * 0.3}px)`; // Adjust 0.3 for speed
-        //     }
-        // });
     </script>
 </body>
 </html>
