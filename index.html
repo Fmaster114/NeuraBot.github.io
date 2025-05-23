@@ -192,7 +192,7 @@
             <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-2">
                 seamlessly integrate into your life.
             </p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
                 <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-3">
                     <div class="text-5xl mb-4">🤖</div>
@@ -317,7 +317,8 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
+    </section>
 
     <section id="pre-order" class="section-padding bg-gray-900 text-white text-center">
         <div class="container mx-auto px-6 max-w-3xl">
@@ -396,25 +397,26 @@
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.1 // Adjust this threshold if elements appear/disappear too early/late
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // If element is entering the viewport
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+            } else {
+                // If element is exiting the viewport (scrolling up or down past it)
+                entry.target.classList.remove('is-visible');
             }
         });
     }, observerOptions);
 
     revealElements.forEach(el => {
-        // Special handling for initial hero content animation
-        if (el.closest('.hero-content-reveal')) {
-            setTimeout(() => {
-                el.closest('.hero-content-reveal').classList.add('animate');
-            }, 100); // Small delay to ensure CSS is rendered before animation starts
-        } else {
+        // Hero content should be always visible, so we don't observe it for disappearing
+        // The previous !important rules in CSS handle this.
+        // We only observe elements that *should* animate in and out on scroll.
+        if (!el.closest('.hero-content-reveal')) {
             observer.observe(el);
         }
     });
