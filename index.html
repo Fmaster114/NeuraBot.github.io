@@ -25,9 +25,9 @@
             color: var(--color-text-dark);
             overflow-x: hidden; /* Prevent horizontal scroll due to animations */
         }
-        
+
         .section-padding {
-            padding-top: 10rem; /* Even larger padding for more breathing room */
+            padding-top: 10rem;
             padding-bottom: 10rem;
         }
 
@@ -42,6 +42,7 @@
         .animated-element {
             transition: all 0.3s var(--transition-ease);
         }
+
         .animated-element:hover {
             transform: scale(1.02);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
@@ -51,6 +52,7 @@
             transition: all 0.4s var(--transition-ease);
             border: 1px solid #e0e0e0; /* Subtle border */
         }
+
         .feature-card:hover {
             transform: translateY(-10px) scale(1.01); /* Lift and slight scale */
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Deeper shadow */
@@ -59,11 +61,12 @@
         /* --- Scroll Reveal Animations --- */
         .reveal-on-scroll {
             opacity: 0;
-            transition: opacity var(--transition-duration) var(--transition-ease), 
-                        transform var(--transition-duration) var(--transition-ease),
-                        filter var(--transition-duration) var(--transition-ease);
+            transition: opacity var(--transition-duration) var(--transition-ease),
+            transform var(--transition-duration) var(--transition-ease),
+            filter var(--transition-duration) var(--transition-ease);
             filter: blur(8px); /* Starts blurry */
         }
+
         .reveal-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0) translateX(0) scale(1) rotate(0deg);
@@ -74,32 +77,71 @@
         .reveal-fade-in-up {
             transform: translateY(40px);
         }
+
         .reveal-fade-in-scale {
             transform: scale(0.9);
         }
+
         .reveal-slide-in-left {
             transform: translateX(-60px);
         }
+
         .reveal-slide-in-right {
             transform: translateX(60px);
         }
+
         .reveal-rotate-in {
             transform: rotate(-10deg) translateY(30px);
         }
 
         /* Staggered delays for reveal animations */
-        .reveal-on-scroll.delay-1 { transition-delay: 0.05s; }
-        .reveal-on-scroll.delay-2 { transition-delay: 0.1s; }
-        .reveal-on-scroll.delay-3 { transition-delay: 0.15s; }
-        .reveal-on-scroll.delay-4 { transition-delay: 0.2s; }
-        .reveal-on-scroll.delay-5 { transition-delay: 0.25s; }
-        .reveal-on-scroll.delay-6 { transition-delay: 0.3s; }
-        .reveal-on-scroll.delay-7 { transition-delay: 0.35s; }
-        .reveal-on-scroll.delay-8 { transition-delay: 0.4s; }
-        .reveal-on-scroll.delay-9 { transition-delay: 0.45s; }
-        .reveal-on-scroll.delay-10 { transition-delay: 0.5s; }
-        .reveal-on-scroll.delay-11 { transition-delay: 0.55s; }
-        .reveal-on-scroll.delay-12 { transition-delay: 0.6s; }
+        .reveal-on-scroll.delay-1 {
+            transition-delay: 0.05s;
+        }
+
+        .reveal-on-scroll.delay-2 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-on-scroll.delay-3 {
+            transition-delay: 0.15s;
+        }
+
+        .reveal-on-scroll.delay-4 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-on-scroll.delay-5 {
+            transition-delay: 0.25s;
+        }
+
+        .reveal-on-scroll.delay-6 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-on-scroll.delay-7 {
+            transition-delay: 0.35s;
+        }
+
+        .reveal-on-scroll.delay-8 {
+            transition-delay: 0.4s;
+        }
+
+        .reveal-on-scroll.delay-9 {
+            transition-delay: 0.45s;
+        }
+
+        .reveal-on-scroll.delay-10 {
+            transition-delay: 0.5s;
+        }
+
+        .reveal-on-scroll.delay-11 {
+            transition-delay: 0.55s;
+        }
+
+        .reveal-on-scroll.delay-12 {
+            transition-delay: 0.6s;
+        }
 
 
         /* --- Header Specifics --- */
@@ -107,14 +149,15 @@
             transition: background-color 0.3s var(--transition-ease), backdrop-filter 0.3s var(--transition-ease), box-shadow 0.3s var(--transition-ease);
             border-bottom: 1px solid transparent; /* Prepare for border change */
         }
+
         header.scrolled {
             background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque */
             backdrop-filter: blur(16px); /* More blur */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* More subtle shadow on scroll */
             border-bottom: 1px solid rgba(220, 220, 220, 0.5); /* Subtle border on scroll */
         }
-        
-        /* --- Hero Section Specifics --- */
+
+        /* --- Hero Section Specifics (Updated) --- */
         /* Removed hero-bg-parallax as there's no background image now */
 
         /* Initial state for hero content for a dramatic entrance */
@@ -124,12 +167,14 @@
             filter: blur(10px);
             transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1), filter 1.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
+
         .hero-content-reveal p {
             opacity: 0;
             transform: translateY(40px);
             filter: blur(8px);
             transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, transform 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s, filter 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
         }
+
         .hero-content-reveal a.animated-button {
             opacity: 0;
             transform: translateY(30px);
@@ -145,6 +190,24 @@
             filter: blur(0);
         }
 
+        /* NEW: Animation for the main hero gradient text */
+        @keyframes gradient-pulse {
+            0%, 100% {
+                filter: brightness(1);
+                transform: scale(1);
+            }
+            50% {
+                filter: brightness(1.2) drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
+                transform: scale(1.01);
+            }
+        }
+
+        .hero-gradient-animated {
+            display: inline-block; /* Crucial for transform/filter to work on span */
+            animation: gradient-pulse 3s ease-in-out infinite;
+        }
+
+
         /* Sticky Section Titles */
         .sticky-section-title-wrapper {
             position: sticky;
@@ -153,291 +216,316 @@
             background-color: transparent; /* Allows content behind to show through */
             pointer-events: none; /* Allows clicks to pass through to content behind */
         }
+
         .sticky-section-title-wrapper h2 {
             pointer-events: auto; /* Re-enable clicks for the title itself */
         }
 
-        /* Product Image Section Styling - REMOVED */
-        /* .product-image-section { ... } */
+        /* Animation for "Limitless Potential." */
+        @keyframes limitless-sparkle {
+            0%, 100% {
+                background: linear-gradient(to right, var(--color-accent-indigo), var(--color-accent-purple));
+                filter: brightness(1) drop-shadow(0 0 0 rgba(168, 85, 247, 0));
+            }
+            50% {
+                background: linear-gradient(to right, #8b5cf6, #c084fc); /* Lighter purple/indigo for spark */
+                filter: brightness(1.2) drop-shadow(0 0 10px rgba(168, 85, 247, 0.6)); /* Glow effect */
+            }
+        }
+
+        .animated-limitless {
+            /* Initially apply gradient for immediate visibility */
+            background: linear-gradient(to right, var(--color-accent-indigo), var(--color-accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block; /* Essential for span to take gradients/shadows */
+        }
+
+        .animated-limitless.is-visible {
+            animation: limitless-sparkle 2s ease-in-out infinite; /* Apply animation when visible */
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 backdrop-blur-md shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="font-bold text-xl text-gray-900">Neura</a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-700">
-                <a href="#features" class="hover:text-indigo-600 transition-colors">Features</a>
-                <a href="#tech-specs" class="hover:text-indigo-600 transition-colors">Tech Specs</a>
-                <a href="#testimonials" class="hover:text-indigo-600 transition-colors">Testimonials</a>
-            </div>
-            <a href="#pre-order" class="animated-element bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-5 rounded-full">Buy Neura</a>
-        </nav>
-    </header>
+<header class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-80 backdrop-blur-md shadow-sm">
+    <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" class="font-bold text-xl text-gray-900">Neura</a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-700">
+            <a href="#features" class="hover:text-indigo-600 transition-colors">Features</a>
+            <a href="#tech-specs" class="hover:text-indigo-600 transition-colors">Tech Specs</a>
+            <a href="#testimonials" class="hover:text-indigo-600 transition-colors">Testimonials</a>
+        </div>
+        <a href="#pre-order" class="animated-element bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-5 rounded-full">Buy Neura</a>
+    </nav>
+</header>
 
-    <main>
-        <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden bg-gray-900 text-white">
-            <div class="absolute inset-0 bg-gray-900"></div> <div class="relative z-10 px-4 hero-content-reveal">
-                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight">
-                    Meet <span class="text-gradient-purple-indigo">Neura.</span> Your Home, Reimagined.
-                </h1>
-                <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
-                    An intelligent companion that anticipates your needs, secures your home, and manages daily life with effortless grace.
-                </p>
-                <a href="#pre-order" class="animated-element inline-block bg-white text-gray-900 hover:bg-gray-200 font-semibold py-3 px-8 rounded-full shadow-lg text-lg">
-                    Discover Neura
-                </a>
-            </div>
-        </section>
+<main>
+    <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden bg-gray-900 text-white">
+        <div class="absolute inset-0 bg-gray-900"></div> <div class="relative z-10 px-4 hero-content-reveal">
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight">
+                Meet <span class="text-gradient-purple-indigo hero-gradient-animated">Neura.</span> Your Home, Reimagined.
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+                An intelligent companion that anticipates your needs, secures your home, and manages daily life with effortless grace.
+            </p>
+            <a href="#pre-order" class="animated-element inline-block bg-white text-gray-900 hover:bg-gray-200 font-semibold py-3 px-8 rounded-full shadow-lg text-lg">
+                Discover Neura
+            </a>
+        </div>
+    </section>
 
-        <section id="features" class="section-padding bg-white relative z-20">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <div class="sticky-section-title-wrapper">
-                    <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
-                        Unrivaled Intelligence. <span class="text-gradient-purple-indigo">Limitless Potential.</span>
-                    </h2>
-                </div>
-                <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-1">
-                    Neura isn't just smart; it's a revolutionary leap in home automation, designed to seamlessly integrate into your life.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                    <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-2">
-                        <div class="text-5xl mb-4">🤖</div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Autonomous Navigation & Manipulation</h3>
-                        <p class="text-gray-700 leading-relaxed">Neura moves freely, using advanced robotics to perform physical tasks, from tidying up to assisting with daily routines.</p>
-                    </div>
-                    <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-3">
-                        <div class="text-5xl mb-4">🔒</div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Advanced Safety & Emergency Response</h3>
-                        <p class="text-gray-700 leading-relaxed">Proactive monitoring for hazards and the ability to automatically contact emergency services, ensuring peace of mind.</p>
-                    </div>
-                    <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-4">
-                        <div class="text-5xl mb-4">🧹</div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Whole-Home Cleaning & Chore Assistance</h3>
-                        <p class="text-gray-700 leading-relaxed">Experience a perpetually tidy home as Neura handles dusting, vacuuming, dishes, laundry, and more.</p>
-                    </div>
-                    <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-5">
-                        <div class="text-5xl mb-4">🗣️</div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Intuitive Voice Control</h3>
-                        <p class="text-gray-700 leading-relaxed">Natural language processing allows effortless communication. Just speak, and Neura understands.</p>
-                    </div>
-                    <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-6">
-                        <div class="text-5xl mb-4">🔇</div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Uncompromising Privacy</h3>
-                        <p class="text-gray-700 leading-relaxed">You're in control. Physical buttons for audio input and output ensure your privacy is paramount.</p>
-                    </div>
-                    <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-7">
-                        <div class="text-5xl mb-4">🔥</div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Fire-Resistant Construction</h3>
-                        <p class="text-gray-700 leading-relaxed">Built with advanced, fire-resistant materials for an added layer of safety and durability in your home.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding bg-gray-900 text-white">
-            <div class="container mx-auto px-6 max-w-5xl text-center">
-                <h2 class="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight reveal-on-scroll reveal-fade-in-up">
-                    A Guardian, Always Vigilant.
-                </h2>
-                <p class="text-xl sm:text-2xl text-gray-300 mb-12 reveal-on-scroll reveal-fade-in-up delay-1">
-                    With advanced sensors and AI, Neura provides unparalleled security and peace of mind for your home.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-8 bg-black rounded-2xl shadow-lg reveal-on-scroll reveal-slide-in-left delay-2">
-                        <div class="text-6xl mb-4">👁️</div>
-                        <h3 class="text-2xl font-bold mb-3">24/7 Monitoring</h3>
-                        <p class="text-gray-400">Constant surveillance and smart alerts for any unusual activity, directly to your device.</p>
-                    </div>
-                    <div class="p-8 bg-black rounded-2xl shadow-lg reveal-on-scroll reveal-slide-in-right delay-3">
-                        <div class="text-6xl mb-4">🚨</div>
-                        <h3 class="text-2xl font-bold mb-3">Instant Threat Detection</h3>
-                        <p class="text-gray-400">AI-powered recognition of potential hazards, from intruders to smoke, with immediate response protocols.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="section-padding bg-gray-50">
-            <div class="container mx-auto px-6 max-w-6xl">
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
-                    What Our Customers Say
-                </h2>
-                <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-1">
-                    Hear directly from those who are already living the Neura difference.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-2">
-                        <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"Neura is a game-changer! I no longer worry about daily chores, and the safety features give me incredible peace of mind."</p>
-                        <p class="font-semibold text-gray-800">- Jessica A., Early Adopter</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-3">
-                        <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"The autonomous cleaning is mind-blowing. Coming home to a spotless house every day is a luxury I never thought possible."</p>
-                        <p class="font-semibold text-gray-800">- David S., Homeowner</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-4">
-                        <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"My kids love interacting with Neura. It's truly a part of our family, making life easier and more enjoyable for everyone."</p>
-                        <p class="font-semibold text-gray-800">- Maria P., Parent</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="tech-specs" class="section-padding bg-white">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
-                    Precision Engineered.
-                </h2>
-                <p class="text-lg sm:text-xl text-center text-gray-600 max-w-2xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-1">
-                    Cutting-edge technology designed for seamless integration and robust performance.
-                </p>
-                <div class="overflow-hidden rounded-2xl shadow-lg border border-gray-100 reveal-on-scroll reveal-fade-in-scale delay-2">
-                    <table class="min-w-full bg-white">
-                        <thead>
-                            <tr class="bg-indigo-600 text-white uppercase text-sm font-semibold tracking-wide">
-                                <th class="py-4 px-6 text-left">Feature</th>
-                                <th class="py-4 px-6 text-left">Detail</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-700 text-base">
-                            <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                                <td class="py-4 px-6 font-medium whitespace-nowrap">Dimensions</td>
-                                <td class="py-4 px-6">Compact (approx. 10 cm / 4 inches tall)</td>
-                            </tr>
-                            <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                                <td class="py-4 px-6 font-medium whitespace-nowrap">Battery Life</td>
-                                <td class="py-4 px-6">Up to 100 hours continuous operation</td>
-                            </tr>
-                            <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                                <td class="py-4 px-6 font-medium whitespace-nowrap">Connectivity</td>
-                                <td class="py-4 px-6">Wi-Fi 6E, Bluetooth 5.3, UWB</td>
-                            </tr>
-                            <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                                <td class="py-4 px-6 font-medium whitespace-nowrap">Materials</td>
-                                <td class="py-4 px-6">Aerospace-grade aluminum, fire-resistant composites</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="py-4 px-6 font-medium whitespace-nowrap">Sensors</td>
-                                <td class="py-4 px-6">Lidar, Ultrasonic, Thermal, High-Res Vision, Environmental</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <section id="pre-order" class="section-padding bg-gray-900 text-white text-center">
-            <div class="container mx-auto px-6 max-w-3xl">
-                <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight reveal-on-scroll reveal-fade-in-up">
-                    The Future of Home is Here.
-                </h2>
-                <p class="text-xl text-gray-300 mb-10 reveal-on-scroll reveal-fade-in-up delay-1">
-                    Be among the first to experience unparalleled convenience and security. Pre-order your Neura Bot today.
-                </p>
-                <button class="animated-element bg-indigo-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-indigo-700 text-xl reveal-on-scroll reveal-fade-in-up delay-2">
-                    Pre-order Neura Bot
-                </button>
-                <p class="text-sm mt-6 opacity-70 reveal-on-scroll reveal-fade-in-up delay-3">Limited initial release. Secure yours now.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-100 py-12 text-center text-gray-600 text-sm">
+    <section id="features" class="section-padding bg-white relative z-20">
         <div class="container mx-auto px-6 max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
-                <div class="reveal-on-scroll reveal-fade-in-up delay-1">
-                    <h4 class="font-semibold text-gray-800 mb-3">Shop Neura</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#pre-order" class="hover:underline">Neura Bot</a></li>
-                        <li><a href="#" class="hover:underline">Accessories</a></li>
-                        <li><a href="#" class="hover:underline">Support Plans</a></li>
-                    </ul>
-                </div>
-                <div class="reveal-on-scroll reveal-fade-in-up delay-2">
-                    <h4 class="font-semibold text-gray-800 mb-3">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:underline">Neura Care</a></li>
-                        <li><a href="#" class="hover:underline">Installation</a></li>
-                        <li><a href="#" class="hover:underline">Software Updates</a></li>
-                    </ul>
-                </div>
-                <div class="reveal-on-scroll reveal-fade-in-up delay-3">
-                    <h4 class="font-semibold text-gray-800 mb-3">About Neura</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:underline">Our Story</a></li>
-                        <li><a href="#contact" class="hover:underline">Contact Us</a></li>
-                        <li><a href="#faq" class="hover:underline">FAQ</a></li>
-                        <li><a href="terms.html" class="hover:underline">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:underline">Terms of Service</a></li>
-                    </ul>
-                </div>
+            <div class="sticky-section-title-wrapper">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
+                    Unrivaled Intelligence. <span class="animated-limitless reveal-on-scroll delay-1">Limitless Potential.</span>
+                </h2>
             </div>
-            <div class="border-t border-gray-200 pt-8 mt-8 reveal-on-scroll reveal-fade-in-up delay-4">
-                <p>&copy; 2025 Neura Bot. All rights reserved.</p>
+            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-2">
+                seamlessly integrate into your life.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-3">
+                    <div class="text-5xl mb-4">🤖</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Autonomous Navigation & Manipulation</h3>
+                    <p class="text-gray-700 leading-relaxed">Neura moves freely, using advanced robotics to perform physical tasks, from tidying up to assisting with daily routines.</p>
+                </div>
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-4">
+                    <div class="text-5xl mb-4">🔒</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Advanced Safety & Emergency Response</h3>
+                    <p class="text-gray-700 leading-relaxed">Proactive monitoring for hazards and the ability to automatically contact emergency services, ensuring peace of mind.</p>
+                </div>
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-5">
+                    <div class="text-5xl mb-4">🧹</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Whole-Home Cleaning & Chore Assistance</h3>
+                    <p class="text-gray-700 leading-relaxed">Experience a perpetually tidy home as Neura handles dusting, vacuuming, dishes, laundry, and more.</p>
+                </div>
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-6">
+                    <div class="text-5xl mb-4">🗣️</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Intuitive Voice Control</h3>
+                    <p class="text-gray-700 leading-relaxed">Natural language processing allows effortless communication. Just speak, and Neura understands.</p>
+                </div>
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-7">
+                    <div class="text-5xl mb-4">🔇</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Uncompromising Privacy</h3>
+                    <p class="text-gray-700 leading-relaxed">You're in control. Physical buttons for audio input and output ensure your privacy is paramount.</p>
+                </div>
+                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-8">
+                    <div class="text-5xl mb-4">🔥</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Fire-Resistant Construction</h3>
+                    <p class="text-gray-700 leading-relaxed">Built with advanced, fire-resistant materials for an added layer of safety and durability in your home.</p>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const scrollPosition = targetElement.offsetTop - headerHeight - 20;
+    <section class="section-padding bg-gray-900 text-white">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight reveal-on-scroll reveal-fade-in-up">
+                A Guardian, Always Vigilant.
+            </h2>
+            <p class="text-xl sm:text-2xl text-gray-300 mb-12 reveal-on-scroll reveal-fade-in-up delay-1">
+                With advanced sensors and AI, Neura provides unparalleled security and peace of mind for your home.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-8 bg-black rounded-2xl shadow-lg reveal-on-scroll reveal-slide-in-left delay-2">
+                    <div class="text-6xl mb-4">👁️</div>
+                    <h3 class="text-2xl font-bold mb-3">24/7 Monitoring</h3>
+                    <p class="text-gray-400">Constant surveillance and smart alerts for any unusual activity, directly to your device.</p>
+                </div>
+                <div class="p-8 bg-black rounded-2xl shadow-lg reveal-on-scroll reveal-slide-in-right delay-3">
+                    <div class="text-6xl mb-4">🚨</div>
+                    <h3 class="text-2xl font-bold mb-3">Instant Threat Detection</h3>
+                    <p class="text-gray-400">AI-powered recognition of potential hazards, from intruders to smoke, with immediate response protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    window.scrollTo({
-                        top: scrollPosition > 0 ? scrollPosition : 0,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+    <section id="testimonials" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
+                What Our Customers Say
+            </h2>
+            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-1">
+                Hear directly from those who are already living the Neura difference.
+            </p>
 
-        // Intersection Observer for scroll-triggered animations
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-2">
+                    <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"Neura is a game-changer! I no longer worry about daily chores, and the safety features give me incredible peace of mind."</p>
+                    <p class="font-semibold text-gray-800">- Jessica A., Early Adopter</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-3">
+                    <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"The autonomous cleaning is mind-blowing. Coming home to a spotless house every day is a luxury I never thought possible."</p>
+                    <p class="font-semibold text-gray-800">- David S., Homeowner</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-4">
+                    <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"My kids love interacting with Neura. It's truly a part of our family, making life easier and more enjoyable for everyone."</p>
+                    <p class="font-semibold text-gray-800">- Maria P., Parent</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        const observerOptions = {
-            root: null, // viewport as root
-            rootMargin: '0px',
-            threshold: 0.1 // Trigger when 10% of the element is visible
-        };
+    <section id="tech-specs" class="section-padding bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
+                Precision Engineered.
+            </h2>
+            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-2xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-1">
+                Cutting-edge technology designed for seamless integration and robust performance.
+            </p>
+            <div class="overflow-hidden rounded-2xl shadow-lg border border-gray-100 reveal-on-scroll reveal-fade-in-scale delay-2">
+                <table class="min-w-full bg-white">
+                    <thead>
+                    <tr class="bg-indigo-600 text-white uppercase text-sm font-semibold tracking-wide">
+                        <th class="py-4 px-6 text-left">Feature</th>
+                        <th class="py-4 px-6 text-left">Detail</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-gray-700 text-base">
+                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                        <td class="py-4 px-6 font-medium whitespace-nowrap">Dimensions</td>
+                        <td class="py-4 px-6">Compact (approx. 10 cm / 4 inches tall)</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                        <td class="py-4 px-6 font-medium whitespace-nowrap">Battery Life</td>
+                        <td class="py-4 px-6">Up to 100 hours continuous operation</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                        <td class="py-4 px-6 font-medium whitespace-nowrap">Connectivity</td>
+                        <td class="py-4 px-6">Wi-Fi 6E, Bluetooth 5.3, UWB</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                        <td class="py-4 px-6 font-medium whitespace-nowrap">Materials</td>
+                        <td class="py-4 px-6">Aerospace-grade aluminum, fire-resistant composites</td>
+                    </tr>
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="py-4 px-6 font-medium whitespace-nowrap">Sensors</td>
+                        <td class="py-4 px-6">Lidar, Ultrasonic, Thermal, High-Res Vision, Environmental</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, observerOptions);
+    <section id="pre-order" class="section-padding bg-gray-900 text-white text-center">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight reveal-on-scroll reveal-fade-in-up">
+                The Future of Home is Here.
+            </h2>
+            <p class="text-xl text-gray-300 mb-10 reveal-on-scroll reveal-fade-in-up delay-1">
+                Be among the first to experience unparalleled convenience and security. Pre-order your Neura Bot today.
+            </p>
+            <button class="animated-element bg-indigo-600 text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-indigo-700 text-xl reveal-on-scroll reveal-fade-in-up delay-2">
+                Pre-order Neura Bot
+            </button>
+            <p class="text-sm mt-6 opacity-70 reveal-on-scroll reveal-fade-in-up delay-3">Limited initial release. Secure yours now.</p>
+        </div>
+    </section>
+</main>
 
-        revealElements.forEach(el => {
-            // Add hero content specific animation trigger on initial load
-            if (el.closest('.hero-content-reveal')) {
-                // Ensure hero content animates immediately on load, not on scroll
-                setTimeout(() => { // Small timeout to ensure CSS is rendered before JS applies class
-                    el.closest('.hero-content-reveal').classList.add('animate');
-                }, 100);
-            } else {
-                observer.observe(el);
+<footer class="bg-gray-100 py-12 text-center text-gray-600 text-sm">
+    <div class="container mx-auto px-6 max-w-6xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
+            <div class="reveal-on-scroll reveal-fade-in-up delay-1">
+                <h4 class="font-semibold text-gray-800 mb-3">Shop Neura</h4>
+                <ul class="space-y-2">
+                    <li><a href="#pre-order" class="hover:underline">Neura Bot</a></li>
+                    <li><a href="#" class="hover:underline">Accessories</a></li>
+                    <li><a href="#" class="hover:underline">Support Plans</a></li>
+                </ul>
+            </div>
+            <div class="reveal-on-scroll reveal-fade-in-up delay-2">
+                <h4 class="font-semibold text-gray-800 mb-3">Services</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Neura Care</a></li>
+                    <li><a href="#" class="hover:underline">Installation</a></li>
+                    <li><a href="#" class="hover:underline">Software Updates</a></li>
+                </ul>
+            </div>
+            <div class="reveal-on-scroll reveal-fade-in-up delay-3">
+                <h4 class="font-semibold text-gray-800 mb-3">About Neura</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:underline">Our Story</a></li>
+                    <li><a href="#contact" class="hover:underline">Contact Us</a></li>
+                    <li><a href="#faq" class="hover:underline">FAQ</a></li>
+                    <li><a href="terms.html" class="hover:underline">Privacy Policy</a></li>
+                    <li><a href="terms.html" class="hover:underline">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-200 pt-8 mt-8 reveal-on-scroll reveal-fade-in-up delay-4">
+            <p>&copy; 2025 Neura Bot. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const scrollPosition = targetElement.offsetTop - headerHeight - 20;
+
+                window.scrollTo({
+                    top: scrollPosition > 0 ? scrollPosition : 0,
+                    behavior: 'smooth'
+                });
             }
         });
+    });
 
-        // Header scroll effect (backdrop blur change)
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+    // Intersection Observer for scroll-triggered animations
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+    const observerOptions = {
+        root: null, // viewport as root
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Special handling for the animated-limitless span and hero gradient text
+                if (entry.target.classList.contains('animated-limitless') || entry.target.classList.contains('hero-gradient-animated')) {
+                    entry.target.classList.add('is-visible'); // Trigger animation
+                }
+                observer.unobserve(entry.target); // Stop observing once animated
             }
         });
-    </script>
+    }, observerOptions);
+
+    revealElements.forEach(el => {
+        // Add hero content specific animation trigger on initial load
+        if (el.closest('.hero-content-reveal')) {
+            setTimeout(() => {
+                el.closest('.hero-content-reveal').classList.add('animate');
+            }, 100);
+        } else {
+            observer.observe(el);
+        }
+    });
+
+    // Header scroll effect (backdrop blur change)
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
