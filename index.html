@@ -21,14 +21,18 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--color-background-light);
+            background-color: var(--color-background-light); /* Default background */
             color: var(--color-text-dark);
             overflow-x: hidden;
+            /* Ensure smooth scrolling for parallax effect if used */
+            scroll-behavior: smooth;
         }
 
         .section-padding {
             padding-top: 10rem;
             padding-bottom: 10rem;
+            position: relative; /* Needed for stacking content */
+            z-index: 1; /* Ensure content is above any fixed backgrounds */
         }
 
         /* --- Text Gradients --- */
@@ -152,6 +156,61 @@
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
+
+        /* --- Parallax Backgrounds --- */
+        /* Each 'parallax-bg' acts as the background for its preceding section */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Covers the full viewport height */
+            z-index: 0; /* Behind content */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: opacity 1s ease-in-out; /* Smooth transition between backgrounds */
+        }
+
+        /* Specific background for Hero section */
+        .bg-hero {
+            background-color: #1a1a1c; /* Dark background color */
+        }
+
+        /* Background for Features section */
+        .bg-features {
+            background-color: var(--color-background-light); /* Light background */
+            opacity: 0; /* Start hidden */
+        }
+
+        /* Background for Callout section */
+        .bg-callout {
+            background-color: #1a1a1c; /* Dark background */
+            opacity: 0;
+        }
+
+        /* Background for Testimonials section */
+        .bg-testimonials {
+            background-color: var(--color-background-light); /* Light background */
+            opacity: 0;
+        }
+
+        /* Background for Tech Specs section */
+        .bg-tech-specs {
+            background-color: var(--color-background-light); /* Light background */
+            opacity: 0;
+        }
+
+        /* Background for Pre-order section */
+        .bg-pre-order {
+            background-color: #1a1a1c; /* Dark background */
+            opacity: 0;
+        }
+
+        /* Active background class */
+        .parallax-bg.active {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -169,8 +228,17 @@
 </header>
 
 <main>
-    <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden bg-gray-900 text-white">
-        <div class="absolute inset-0 bg-gray-900"></div>
+    <div id="parallax-container">
+        <div class="parallax-bg bg-hero active" data-section="hero"></div>
+        <div class="parallax-bg bg-features" data-section="features"></div>
+        <div class="parallax-bg bg-callout" data-section="callout"></div>
+        <div class="parallax-bg bg-testimonials" data-section="testimonials"></div>
+        <div class="parallax-bg bg-tech-specs" data-section="tech-specs"></div>
+        <div class="parallax-bg bg-pre-order" data-section="pre-order"></div>
+    </div>
+
+
+    <section id="hero" class="min-h-screen flex items-center justify-center text-center relative overflow-hidden text-white z-10">
         <div class="relative z-10 px-4 hero-content-reveal">
             <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold leading-tight mb-6 tracking-tight">
                 Meet <span class="text-gradient-purple-indigo">Neura.</span> Your Home, Reimagined.
@@ -228,7 +296,7 @@
         </div>
     </section>
 
-    <section class="section-padding bg-gray-900 text-white">
+    <section id="callout" class="section-padding text-white relative z-20">
         <div class="container mx-auto px-6 max-w-5xl text-center">
             <h2 class="text-4xl sm:text-5xl font-extrabold mb-8 tracking-tight reveal-on-scroll reveal-fade-in-up">
                 A Guardian, Always Vigilant.
@@ -251,7 +319,7 @@
         </div>
     </section>
 
-    <section id="testimonials" class="section-padding bg-gray-50">
+    <section id="testimonials" class="section-padding relative z-20">
         <div class="container mx-auto px-6 max-w-6xl">
             <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
                 What Our Customers Say
@@ -263,7 +331,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-2">
                     <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"Neura is a game-changer! I no longer worry about daily chores, and the safety features give me incredible peace of mind."</p>
-                    <p class="font-semibold text-gray-800">- Nicklas S., Early Adopter</p>
+                    <p class="font-semibold text-gray-800">- Jessica A., Early Adopter</p>
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-3">
                     <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"The autonomous cleaning is mind-blowing. Coming home to a spotless house every day is a luxury I never thought possible."</p>
@@ -271,13 +339,13 @@
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-100 reveal-on-scroll reveal-rotate-in delay-4">
                     <p class="text-xl italic text-gray-700 mb-6 leading-relaxed">"My kids love interacting with Neura. It's truly a part of our family, making life easier and more enjoyable for everyone."</p>
-                    <p class="font-semibold text-gray-800">- Greg H., Parent</p>
+                    <p class="font-semibold text-gray-800">- Maria P., Parent</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tech-specs" class="section-padding bg-white">
+    <section id="tech-specs" class="section-padding relative z-20">
         <div class="container mx-auto px-6 max-w-4xl">
             <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
                 Precision Engineered.
@@ -320,7 +388,7 @@
         </div>
     </section>
 
-    <section id="pre-order" class="section-padding bg-gray-900 text-white text-center">
+    <section id="pre-order" class="section-padding text-white relative z-20">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight reveal-on-scroll reveal-fade-in-up">
                 The Future of Home is Here.
@@ -336,7 +404,7 @@
     </section>
 </main>
 
-<footer class="bg-gray-100 py-12 text-center text-gray-600 text-sm">
+<footer class="bg-gray-100 py-12 text-center text-gray-600 text-sm relative z-20">
     <div class="container mx-auto px-6 max-w-6xl">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-left">
             <div class="reveal-on-scroll reveal-fade-in-up delay-1">
@@ -381,6 +449,7 @@
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = document.querySelector('header').offsetHeight;
+                // Scroll slightly above the section to prevent header from covering content
                 const scrollPosition = targetElement.offsetTop - headerHeight - 20;
 
                 window.scrollTo({
@@ -403,10 +472,8 @@
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // If element is entering the viewport
                 entry.target.classList.add('is-visible');
             } else {
-                // If element is exiting the viewport (scrolling up or down past it)
                 entry.target.classList.remove('is-visible');
             }
         });
@@ -414,8 +481,6 @@
 
     revealElements.forEach(el => {
         // Hero content should be always visible, so we don't observe it for disappearing
-        // The previous !important rules in CSS handle this.
-        // We only observe elements that *should* animate in and out on scroll.
         if (!el.closest('.hero-content-reveal')) {
             observer.observe(el);
         }
@@ -430,6 +495,56 @@
             header.classList.remove('scrolled');
         }
     });
+
+    // New JavaScript for "Apple-like" background animation
+    const sections = document.querySelectorAll('section');
+    const parallaxBgs = document.querySelectorAll('.parallax-bg');
+
+    const sectionObserverOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 // When 50% of the section is visible
+    };
+
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            const targetId = entry.target.id;
+            const correspondingBg = document.querySelector(`.parallax-bg[data-section="${targetId}"]`);
+
+            if (entry.isIntersecting) {
+                // Deactivate all backgrounds first
+                parallaxBgs.forEach(bg => bg.classList.remove('active'));
+                // Activate the current section's background
+                if (correspondingBg) {
+                    correspondingBg.classList.add('active');
+                }
+            } else {
+                // Optional: If you want backgrounds to disappear when section scrolls fully out of view,
+                // you might add logic here, but for smooth transitions, it's often better
+                // to let the next intersecting section handle the 'active' state.
+            }
+        });
+    }, sectionObserverOptions);
+
+    // Observe each content section
+    sections.forEach(section => {
+        // Exclude the footer from background changes if it's not a main content section
+        if (section.id && section.id !== 'hero' && section.id !== 'pre-order') { // Added 'hero' and 'pre-order' to avoid observing if they are special cases
+             sectionObserver.observe(section);
+        } else if (section.id === 'hero' || section.id === 'pre-order') {
+             // For hero, ensure its background is active initially
+             // For pre-order, observe it to switch to its background
+             sectionObserver.observe(section);
+        }
+    });
+
+    // Special handling for the hero section to activate its background initially
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.parallax-bg.bg-hero').classList.add('active');
+        // Ensure other backgrounds start inactive
+        document.querySelectorAll('.parallax-bg:not(.bg-hero)').forEach(bg => bg.classList.remove('active'));
+    });
+
 </script>
 </body>
 </html>
