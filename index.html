@@ -157,9 +157,7 @@
             border-bottom: 1px solid rgba(220, 220, 220, 0.5); /* Subtle border on scroll */
         }
 
-        /* --- Hero Section Specifics (Updated) --- */
-        /* Removed hero-bg-parallax as there's no background image now */
-
+        /* --- Hero Section Specifics --- */
         /* Initial state for hero content for a dramatic entrance */
         .hero-content-reveal h1 {
             opacity: 0;
@@ -190,7 +188,7 @@
             filter: blur(0);
         }
 
-        /* NEW: Animation for the main hero gradient text */
+        /* Animation for the main hero gradient text "Neura." */
         @keyframes gradient-pulse {
             0%, 100% {
                 filter: brightness(1);
@@ -213,13 +211,12 @@
             position: sticky;
             top: 100px; /* Adjust based on header height */
             z-index: 10;
-            background-color: transparent; /* Allows content behind to show through */
-            pointer-events: none; /* Allows clicks to pass through to content behind */
+            background-color: var(--color-background-light); /* Explicit background to prevent content overlap */
+            padding-bottom: 2rem; /* Add some padding so the content starts below the sticky title */
+            /* Removed pointer-events: none; as it's not needed if background is solid */
         }
+        /* No changes needed for h2 within wrapper, pointer-events are fine */
 
-        .sticky-section-title-wrapper h2 {
-            pointer-events: auto; /* Re-enable clicks for the title itself */
-        }
 
         /* Animation for "Limitless Potential." */
         @keyframes limitless-sparkle {
@@ -281,13 +278,12 @@
                 <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-4 tracking-tight reveal-on-scroll reveal-fade-in-up">
                     Unrivaled Intelligence. <span class="animated-limitless reveal-on-scroll delay-1">Limitless Potential.</span>
                 </h2>
+                <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto reveal-on-scroll reveal-fade-in-up delay-2">
+                    seamlessly integrate into your life.
+                </p>
             </div>
-            <p class="text-lg sm:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-20 reveal-on-scroll reveal-fade-in-up delay-2">
-                seamlessly integrate into your life.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-3">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 pt-20"> <div class="feature-card text-center bg-gray-50 p-8 rounded-2xl shadow-sm reveal-on-scroll reveal-fade-in-up delay-3">
                     <div class="text-5xl mb-4">🤖</div>
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Autonomous Navigation & Manipulation</h3>
                     <p class="text-gray-700 leading-relaxed">Neura moves freely, using advanced robotics to perform physical tasks, from tidying up to assisting with daily routines.</p>
